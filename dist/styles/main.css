@@ -1,14 +1,74 @@
-h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400; }
+.calendar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(7, 100px);
+  grid-gap: 1px;
+  counter-reset: days; }
+  .calendar div {
+    height: 100px;
+    position: relative; }
+    .calendar div:before {
+      font-family: "Arial", sans-serif;
+      font-size: 30px;
+      -webkit-transition-duration: 0.5s;
+              transition-duration: 0.5s;
+      -webkit-transition-property: background-color, -webkit-transform;
+      transition-property: background-color, -webkit-transform;
+      transition-property: background-color, transform;
+      transition-property: background-color, transform, -webkit-transform;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      cursor: pointer;
+      border: 1px solid #000;
+      background-color: #eee;
+      counter-increment: days;
+      content: counter(days); }
+    .calendar div:hover:before {
+      background-color: pink;
+      -webkit-transform: translateY(-20px);
+              transform: translateY(-20px); }
 
-@font-face {
-  font-family: "Roboto";
-  src: url("../fonts/Roboto-Regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
+.calendar-28 div:nth-last-child(-n + 3) {
+  display: none; }
 
-body {
-  background: #eee; }
+.calendar-29 div:nth-last-child(-n + 2) {
+  display: none; }
+
+.calendar-30 div:nth-last-child(-n + 1) {
+  display: none; }
+
+.calendar-tue div:first-child {
+  grid-column-start: 2; }
+
+.calendar-wed div:first-child {
+  grid-column-start: 3; }
+
+.calendar-thu div:first-child {
+  grid-column-start: 4; }
+
+.calendar-fri div:first-child {
+  grid-column-start: 5; }
+
+.calendar-sat div:first-child {
+  grid-column-start: 6; }
+
+.calendar-sun div:first-child {
+  grid-column-start: 7; }
 
 /*# sourceMappingURL=main.css.map */
