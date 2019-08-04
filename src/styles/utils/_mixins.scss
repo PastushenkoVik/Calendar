@@ -1,6 +1,19 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin month-length() {
+  @for $i from 28 through 30 {
+    .calendar-#{$i} {
+      div:nth-last-child(-n + #{31 - $i}) {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin first-day() {
+  $days: (tue: 2, wed: 3, thu: 4, fri: 5, sat: 6, sun: 7);
+
+  @each $day, $gap in $days {
+    .calendar-#{$day} div:first-child {
+      grid-column-start: #{$gap};
+    }
   }
 }
