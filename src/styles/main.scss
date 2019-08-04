@@ -1,11 +1,14 @@
 @import "utils";
 
-.calendar {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.calendar {
   display: grid;
   grid-template-columns: repeat(7, $cell-size);
   grid-gap: 1px;
@@ -37,10 +40,12 @@
       counter-increment: days;
       content: counter(days);
     }
+
     &:hover:before {
       background-color: $c-pink;
       transform: translateY($cell-hover-rise);
     }
+
   }
 }
 
